@@ -2,7 +2,7 @@
 
 ## Build Base Docker image
 - Assuming all challenges require ubuntu 18.04 LTS docker images
-- Example Dockerfile [general_dockerfile_config]general_dockerfile_config()
+- Example Dockerfile [Dockerfile_Example](Dockerfile_Example)
 - Build a base docker image which has ubuntu:18.04 updated and su installed (execute from git root)
 ```bash
 docker build -t baseimage .
