@@ -1,13 +1,14 @@
 import socket
 import hashlib
 import threading
+import time
 
 lock=threading.Lock()
 
 m=hashlib.md5()
 socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 #socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-socket.bind(('0.0.0.0',1337))
+socket.bind(('0.0.0.0',4444))
 socket.listen(10)
 
 def Server():
@@ -48,3 +49,5 @@ for i in range(0,4):
 
 for thread in threads:
     thread.join()
+
+time.sleep(200)
