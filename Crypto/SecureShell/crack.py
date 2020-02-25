@@ -2,7 +2,7 @@ from base64 import b64decode,b64encode
 from Crypto.Protocol.KDF import PBKDF2
 from Crypto.PublicKey import ECC
 
-target = b64decode("vg==".encode())
+target = b64decode("vA==".encode())
 salt = 'suPer_s3cur3_s@1t'.encode()
 
 def s3cure_rand0m(i):
@@ -17,7 +17,7 @@ def gen_key(password):
     return ECC.generate(curve='P-521',randfunc=s3cure_rand0m)
 
 
-for password in range(1,100):
+for password in range(1,4096):
     rand = PBKDF2((str(password)+hex(1)).encode(),salt,dkLen=1,count=1)
     if rand == target:
         print(password)
