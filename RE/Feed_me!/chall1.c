@@ -3,6 +3,15 @@
 #include<string.h>
 #include<openssl/md5.h>
 
+void itoa(int num, char *str,int base)
+{
+        if(str == NULL)
+        {
+                return NULL;
+        }
+        sprintf(str, "%d", num);
+}
+
 void succeed()
 {
 	printf("*************You filled my apetite******************\nValidate the challenge with the password");
@@ -31,7 +40,7 @@ char* function3(char a[])
 	char digest[17];
 	unsigned char ans[33]={0};
 	MD5(a,sizeof(a)/sizeof(a[0]),ans);
-	btox(digest,ans,sizeof(a)/sizeof(a[0]));
+	sprintf(ans, "%32x", digest);
 	return ans;
 }
 
