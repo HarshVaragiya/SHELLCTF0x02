@@ -84,7 +84,7 @@ int main()
 	char string[]={"\x23\x49\x20\x61\x6d\x20\x6a\x75\x73\x74\x20\x40\x20\x72\x61\x6e\x64\x6f\x6d\x20\x73\x74\x72\x69\x6e\x67\x73\x2e\x2e\x2e\x70\x79\x74\x68\x6f\x6e\x20\x2d\x76"};
 	printf("************************I am Hungry! Give me Something to Eat*********************\n");
 	char password[33]={0};
-	scanf("Enter the Food: %s",password);
+	scanf("Enter the Food: %s",&password);
 	function1(password,string);
 	function2(password);
 	ans=function3(password);

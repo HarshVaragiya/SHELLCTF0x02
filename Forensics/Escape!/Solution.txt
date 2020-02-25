@@ -1,0 +1,1 @@
+`echo echo {u..o}ython\ -m\ SimpleHTTPSe{u..o}ve{o..u}\\;`
