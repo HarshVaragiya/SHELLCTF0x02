@@ -1,6 +1,7 @@
-FROM secureshell
+FROM updated-ubuntu
 
-RUN rm -rf /etc/supervisor/conf.d/supervisord.conf
+RUN apt install python supervisor -y && adduser shell 
+RUN mkdir -p /var/run/sshd /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 USER shell
