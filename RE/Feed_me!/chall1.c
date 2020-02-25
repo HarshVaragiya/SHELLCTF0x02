@@ -3,15 +3,6 @@
 #include<string.h>
 #include<openssl/md5.h>
 
-void itoa(int num, char *str,int base)
-{
-        if(str == NULL)
-        {
-                return NULL;
-        }
-        sprintf(str, "%d", num);
-}
-
 void succeed()
 {
 	printf("*************You filled my apetite******************\nValidate the challenge with the password");
@@ -24,24 +15,26 @@ void fail()
 	exit(0);
 }
 
-void function1(char a[],char b[])
+void function1(char* a,char* b)
 {
 	int i;
-	for(i=0;i<sizeof(a)/sizeof(a[0]);i++)
+	char ch[2],ch1[2];
+	ch[1]='\0';
+	ch1[1]='\0';
+	for(i=0;a[i]!='\0';i++)
 	{
-		int tmp=atoi(a[i])^atoi(b[i]);
-		itoa(tmp,a[i],10);
+		ch[0]=a[i];
+		ch1[0]=b[i];
+		int tmp=atoi(ch)^atoi(ch1);
+		a[i]=tmp;
 	}
-	a[i]='\0';
 }
 
-char* function3(char a[])
+void function3(char a[],char ans[])
 {
 	char digest[17];
-	unsigned char ans[33]={0};
 	MD5(a,sizeof(a)/sizeof(a[0]),ans);
-	sprintf(ans, "%32x", digest);
-	return ans;
+	//sprintf(ans, "%32x", digest);
 }
 
 int gcd(int a, int b)
@@ -75,22 +68,25 @@ void function2(char a[])
         	}
         	a[j] = temp;
     	}
+
 }
 
 int main()
 {
-	char pass[]="\xde\xad\xbe\xef";
-	char* ans;
-	char string[]={"\x23\x49\x20\x61\x6d\x20\x6a\x75\x73\x74\x20\x40\x20\x72\x61\x6e\x64\x6f\x6d\x20\x73\x74\x72\x69\x6e\x67\x73\x2e\x2e\x2e\x70\x79\x74\x68\x6f\x6e\x20\x2d\x76"};
-	printf("************************I am Hungry! Give me Something to Eat*********************\n");
-	char password[33]={0};
-	scanf("Enter the Food: %s",&password);
+	char string[]={"\x23\x49\x20\x61\x6d\x20\x6a\x75\x73\x74\x20\x40\x20\x72\x61\x6e\x64\x6f\x6d\x20\x73\x74\x72\x69\x6e\x67\x73\x2e\x2e\x2e\x70\x79\x74\x68\x6f\x6e\x20\x2d\x76\0"};
+	printf("************************I am Hungry! Give me Something to Eat*********************\nEnter the Food:");
+	char password[34],ans[34];
+	scanf("%s",&password);
+	printf("%s",password);
 	function1(password,string);
+	printf("Return after fun1 %s",password);
 	function2(password);
-	ans=function3(password);
-	int correct = (strcmp("0d107d09f5bbe40cade3de5c71e9e9b7",ans)==0);
+	printf("Return after func2 %s",password);
+	function3(password,ans);
+	printf("Return after func3 %s",ans);
+	/*int correct = (strcmp("0d107d09f5bbe40cade3de5c71e9e9b7\0",ans)==0);
 	if (correct)
 		succeed();
 	else
-		fail();
+		fail();*/
 }
