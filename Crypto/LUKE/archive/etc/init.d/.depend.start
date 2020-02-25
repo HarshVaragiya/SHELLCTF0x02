@@ -1,3 +1,0 @@
-TARGETS = killprocs ondemand rc.local single
-INTERACTIVE =
-single: killprocs
