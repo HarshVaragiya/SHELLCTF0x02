@@ -1,1 +1,1 @@
-shellctf{p@ran0ia}
+shellctf{p@ran0ia_get$_th3_best_0f_u$}
