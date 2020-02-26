@@ -20,4 +20,9 @@ docker kill run
 docker run -d --rm -p 4200:22 --name run run
 
 #Web
+echo "Restarting meme container" >> /root/killer.log
+docker kill meme
+docker run -d --rm -p 4300:80 --name meme meme
+
+
 
