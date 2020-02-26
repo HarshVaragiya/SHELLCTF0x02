@@ -7,21 +7,14 @@
 #include <fcntl.h>
 #include <stdlib.h>
  
-#define PASSWORD ".passwd"
-#define TMP1 "/tmp/"
-#define TMP2 "tmp_file.txt"
-#define TMP_FILE TMP1 TMP2
+#define PASSWORD "/root/admin/flag.txt"
+#define TMP_FILE ".flag.txt"
+
 int main(void)
 {
   int fd_tmp, fd_rd;
   char ch;
  
- 
-  if (ptrace(PTRACE_TRACEME, 0, 1, 0) < 0)
-    {
-      printf("[-] Don't use a debugguer !\n");
-      abort();
-    }
   if((fd_tmp = open(TMP_FILE, O_WRONLY | O_CREAT, 0444)) == -1)
     {
       perror("[-] Can't create tmp file!");
@@ -40,6 +33,7 @@ int main(void)
     }
   close(fd_rd);
   close(fd_tmp);
+  sleep(0.001);
 end:
   unlink(TMP_FILE);
  
