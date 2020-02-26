@@ -1,0 +1,21 @@
+FROM php:5.6
+RUN apt update
+
+ENV MYSQL_ROOT_PASSWORD nomad
+
+COPY index.php /var/www/html/index.php
+COPY connect.php /var/www/html/connect.php
+COPY shell.sql /root/shell.sql
+
+RUN apt install apache2 mysql-server -y
+RUN service apache2 start
+RUN /etc/init.d/mysql start && mysql -uroot -e "create database shell" && mysql shell < /root/shell.sql
+
+RUN apt install supervisor -y && mkdir -p /var/log/supervisor/
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+RUN echo "LoadModule php5_module libexec/apache2/libphp5.so" >> /etc/apache2/httpd.conf && service apache2 restart
+
+
+CMD ["/usr/bin/supervisord"]
