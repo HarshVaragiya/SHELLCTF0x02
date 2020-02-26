@@ -17,11 +17,11 @@
 <?php
 // http_response_code(404);
 // Get the current default response code
-var_dump(http_response_code());
-header("HTTP/1.1 404 Not Found");
+//var_dump(http_response_code());
+//header("HTTP/1.1 404 Not Found");
 
 // Set a response code
-var_dump(http_response_code());
+//var_dump(http_response_code());
 
 $pass = $_POST['pass'];
 
