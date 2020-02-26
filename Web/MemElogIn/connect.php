@@ -1,7 +1,7 @@
 <?php
 
-$dbuser ='nomad';
-$dbpass ='nomad';
+$dbuser ='root';
+$dbpass ='';
 $dbname ='shell';
 $host = 'localhost';
 
