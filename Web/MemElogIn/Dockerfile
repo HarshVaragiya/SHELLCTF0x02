@@ -15,6 +15,10 @@ RUN sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf \
 
 COPY . /var/www/html/
 RUN mkdir -p /var/www/html/finger-print/
+COPY logs/.git /var/www/html/finger-print/.git
+COPY logs/.htaccess /var/www/html/finger-print/.htaccess
+COPY logs/index.php /var/www/html/finger-print/index.php
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN rm /var/www/html/index.html \
 	&& rm /var/www/html/Dockerfile \
