@@ -15,6 +15,8 @@ RUN sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf \
 	&& mv /tmp/my.cnf /etc/mysql/my.cnf
 
 COPY . /var/www/html/
+RUN mkdir -p /var/www/html/finger-print/
+
 RUN rm /var/www/html/index.html \
 	&& rm /var/www/html/Dockerfile \
 	&& rm /var/www/html/shell.sql \
