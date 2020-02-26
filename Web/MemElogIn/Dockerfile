@@ -1,6 +1,5 @@
 FROM ubuntu:trusty
   
-MAINTAINER image "malingtao1019@163.com"  
 # update source  
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe"> /etc/apt/sources.list \
 	&& apt-get update \
