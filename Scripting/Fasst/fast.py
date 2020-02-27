@@ -5,7 +5,7 @@ import time
 
 lock=threading.Lock()
 
-m=hashlib.md5()
+#m=hashlib.md5()
 socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 #socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 socket.bind(('0.0.0.0',4444))
@@ -23,6 +23,7 @@ def Server():
             try:
                 payload=lines.strip('\n')
                 conn.send("String: "+payload+"\n")
+                m=hashlib.md5()
                 m.update(payload)
                 ans=m.hexdigest()
                 user=conn.recv(1024)
