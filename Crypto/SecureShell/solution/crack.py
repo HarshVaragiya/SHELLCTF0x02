@@ -4,11 +4,9 @@ from Crypto.PublicKey import ECC
 
 # getting these values from key keygen.log
 rand_rets = [
-    b64decode("/g== ".encode()),
-    b64decode("edSiwINvRYnp9gdAvKz8+bu/YhMRUGu9e3gAAYZdYKvZ/nELYKOlZD4Y9UhQ+QzpiPKvK7g/z9f6SE7Yg61lG8E=".encode())
+    b64decode("Cw==".encode()),
+    b64decode("7+lDRCiQiVqB5eGeON+buWPw0Kja8EqNISVawBuZTlciwK0oAm3s3mAwHV9Co8ON21yDsTOa+bHsMycQXPwTKsk=".encode())
     ]
-
-salt = 'suPer_s3cur3_s@1t'.encode()
 
 def s3cure_rand0m(i):
     var = rand_rets.pop(0)
