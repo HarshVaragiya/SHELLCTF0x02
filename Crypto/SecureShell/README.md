@@ -56,7 +56,7 @@ rand_rets = [
     ]
 ```
 
-2. Run (crack.py](crack.py)
+2. Run [solution/crack.py](solution/crack.py)
 ```log
 Returning Cw== 
 Returning 7+lDRCiQiVqB5eGeON+buWPw0Kja8EqNISVawBuZTlciwK0oAm3s3mAwHV9Co8ON21yDsTOa+bHsMycQXPwTKsk= 
